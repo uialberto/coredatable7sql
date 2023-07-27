@@ -5,11 +5,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
+using AppWeb.ViewModel;
 
 namespace AppWeb.Controllers
 {
     [AllowAnonymous]
-    [Route("sec")]
+    //[Route("sec")]
     public class SecurityController : Controller
     {
         private readonly ILogger<SecurityController> _logger;
@@ -24,7 +25,7 @@ namespace AppWeb.Controllers
             return View("NotAuthorized", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, DoRedirect = true });
         }
 
-        [HttpGet("users")]
+        //[HttpGet("users")]
         public IActionResult Users()
         {
             var idUser = Guid.NewGuid().ToString();
@@ -40,7 +41,7 @@ namespace AppWeb.Controllers
                     Id = idUser
                 },
             };
-            return View("Views/Security/Users.cshtml", model);
+            return View("Views/Security/Users.cshtml", new UsuarioViewModel());
         }
 
         [HttpGet("roles")]

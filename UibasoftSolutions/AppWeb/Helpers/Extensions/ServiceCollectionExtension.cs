@@ -1,5 +1,7 @@
 ﻿using AppWeb.Helpers.Options;
 using AppWeb.Modules.Core.Context;
+using AppWeb.Modules.Core.Services;
+using AppWeb.Modules.Core.Services.Impl;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppWeb.Helpers.Extensions
@@ -48,6 +50,7 @@ namespace AppWeb.Helpers.Extensions
             //    });
             //});
             //services.AddScoped<IServiceAccount, ServiceAccount>();
+            services.AddScoped<IUsuarioServices, UsuarioServices>();
             return services;
         }
 

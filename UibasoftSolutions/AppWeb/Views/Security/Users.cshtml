@@ -1,5 +1,74 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model AppWeb.ViewModel.UsuarioViewModel
+@using JqueryDataTables.ServerSide.AspNetCoreWeb.TagHelpers
 @{
+    Layout = null;
 }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Datables - List Personas</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables/css/dataTables.bootstrap4.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables/css/buttons.dataTables.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @Html.AntiForgeryToken();
+
+    <div class="container-fluid">
+        <div class="page-content">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <p class="text-center">Lista de Personas</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="input-group mb-3">
+                                <input type="text" id="txtExternalSearch" class="form-control" placeholder="Buscar en este sitio" aria-label="External Search" aria-describedby="btnExternalSearch">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="btnExternalSearch">Buscar</button>
+                                </div>
+                            </div>
+                            <jquery-datatables id="tbl-peoples"
+                                               class="table table-striped table-hover table-bordered"
+                                               model="@Model"
+                                               thead-class="text-center"
+                                               enable-searching="false"
+                                               search-row-th-class="p-0"
+                                               search-input-class="form-control form-control-sm"
+                                               search-input-style=""
+                                               search-input-placeholder-prefix="Buscar">
+                            </jquery-datatables>
+                            <partial name="_Create" model="Model" />
+                            <div id="editPartial"></div>
+                        </div>
+                        <div class="card-footer">
+                            <p class="text-center">&copy; UIBASOFT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>    
+    <script src="~/lib/moment.js/moment.min.js" asp-append-version="true"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/dataTables.buttons.min.js" asp-append-version="true"></script>
+
+    <script src="~/lib/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.html5.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>

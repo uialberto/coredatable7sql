@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace AppWeb.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class DashboardController : Controller
     {
         private readonly ILogger<DashboardController> _logger;
