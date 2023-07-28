@@ -138,16 +138,6 @@ $(() => {
                     data: "email",
                 },
                 {
-                    data: "FechaInicio",
-                    render: function (data, type, row) {
-                        if (data)
-                            return window.moment(data).format("DD/MM/YYYY");
-                        else
-                            return null;
-                    },
-                    name: "gt"
-                },
-                {
                     data: "fechaCreacion",
                     render: function (data, type, row) {
                         if (data)
