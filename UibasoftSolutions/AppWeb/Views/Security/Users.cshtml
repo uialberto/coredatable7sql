@@ -26,17 +26,18 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <p class="text-center">Lista de Personas</p>
+                            @*<p class="text-center">Lista de Personas</p>*@
+                            <h3 class="page-title-info">Usuarios</h3>
                         </div>
                         <div class="card-body">
                             <div class="input-group mb-3">
-                                <input type="text" id="txtExternalSearch" class="form-control" placeholder="Buscar en este sitio" aria-label="External Search" aria-describedby="btnExternalSearch">
+                                <input type="text" id="txtExternalSearch" class="form-control" placeholder="Ingrese texto de búsquedad..." aria-label="External Search" aria-describedby="btnExternalSearch">
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="btnExternalSearch">Buscar</button>
+                                    <button class="btn btn-secondary" type="button" id="btnExternalSearch">Buscar</button>
                                 </div>
                             </div>
                             <jquery-datatables id="tbl-peoples"
-                                               class="table table-striped table-hover table-bordered"
+                                               class="table table-striped table-hover table-bordered table-list-fc"
                                                model="@Model"
                                                thead-class="text-center"
                                                enable-searching="false"
@@ -48,8 +49,13 @@
                             <partial name="_Create" model="Model" />
                             <div id="editPartial"></div>
                         </div>
-                        <div class="card-footer">
-                            <p class="text-center">&copy; UIBASOFT</p>
+                        <div class="card-footer footer">                            
+                            <p class="text-center">
+                                @*&copy; UIBASOFT <br />*@
+                                Para obtener más información contácta con: <br>
+                                <a style="font-size: 12px; color: #337ab7; text-decoration:none;" href="https://www.lbaigorria.com" target="_blank">Alberto Baigorria</a> <br />
+                                <span> Server: Core Fenix  |<span style="font-weight: bold">  Version: 1.0.0 </span> | &copy; @DateTime.Now.Year - Farmacorp Fenix </span>
+                            </p>
                         </div>
                     </div>
                 </div>

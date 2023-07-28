@@ -65,7 +65,7 @@ namespace AppWeb.ViewModel
         [SearchableString(EntityProperty = "Email")]
         [Sortable(EntityProperty = "Email")]
         public string Email { get; set; }
-        [DisplayName("FechaCreacion")]
+        [DisplayName("Fecha Creacion")]
         [JqueryDataTableColumn(Order = 6)]
         [SearchableDateTime(EntityProperty = "FechaCreacion")]
         [Sortable(EntityProperty = "FechaCreacion")]
