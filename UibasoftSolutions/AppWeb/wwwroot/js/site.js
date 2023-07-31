@@ -29,7 +29,7 @@ $(() => {
             orderCellsTop: true,
             autoWidth: true,
             deferRender: true,
-            lengthMenu: [[5, 10, 15, 20, 100], [5, 10, 15, 20, 100]],            
+            lengthMenu: [[10, 15, 20, 100], [10, 15, 20, 100]],            
             //dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6 text-right"B>><"row"<"col-sm-12"tr>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
             dom: '<"row"<"col-sm-12 col-md-6"B><"col-sm-12 col-md-6 text-right"l>><"row"<"col-sm-12"tr>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
             buttons: [
@@ -104,7 +104,7 @@ $(() => {
             ],
             ajax: {
                 type: "POST",
-                url: '/users/search/',
+                url: '/users/search/',                
                 contentType: "application/json; charset=utf-8",
                 async: true,
                 headers: {
