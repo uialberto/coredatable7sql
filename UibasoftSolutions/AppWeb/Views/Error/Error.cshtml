@@ -1,0 +1,33 @@
+﻿@model ErrorViewModel
+@{
+    //Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+    Layout = null;
+    ViewData["Title"] = "Error 500";
+}
+<div class="error-container">
+    <i class="pe-7s-way text-success big-icon"></i>
+    <h1>Oops!!</h1>
+    <h1>500 Excepcion controlada!</h1>
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Request ID: </strong> <code>@Model.RequestId</code>
+        </p>
+    }
+    <p>
+        Ha ocurrido un error inesperado en el sistema. Se ha notificado al departamento de soporte técnico.
+        Vuelva a intentarlo dentro de unos minutos.
+    </p>
+    <a href="@Url.Action("Index", "Dashboard")" class="btn btn-xs btn-success">Volver Dashboard</a>
+</div>
+
+@if (Model.DoRedirect)
+{
+    <script>
+
+        window.setTimeout(function(){
+             window.location.href='@Url.Action("index", "dashboard")';
+        }, 10000);
+
+    </script>
+}

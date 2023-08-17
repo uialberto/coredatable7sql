@@ -1,4 +1,6 @@
 using AppWeb.Helpers.Extensions;
+using AppWeb.Modules.Core.Context;
+using AppWeb.Modules.Core.Entities;
 using System.Text.Json.Serialization;
 
 var configBuilder = new ConfigurationBuilder()
@@ -46,6 +48,35 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddAuthentication().AddCookie();
 
+builder.Services.AddIdentity<AppUsuario, AppRole>(options =>
+{
+    options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._@+";
+    options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedEmail = false;
+    options.SignIn.RequireConfirmedPhoneNumber = false;
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireNonAlphanumeric = false;
+
+
+    //// Password settings.
+    //options.Password.RequireDigit = true;
+    //options.Password.RequireLowercase = true;
+    //options.Password.RequireNonAlphanumeric = true;
+    //options.Password.RequireUppercase = true;
+    //options.Password.RequiredLength = 6;
+    //options.Password.RequiredUniqueChars = 1;
+
+    //// Lockout settings.
+    //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+    //options.Lockout.MaxFailedAccessAttempts = 5;
+    //options.Lockout.AllowedForNewUsers = true;
+
+    //// User settings.
+    //options.User.AllowedUserNameCharacters =
+    //"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+    //options.User.RequireUniqueEmail = false;
+
+}).AddEntityFrameworkStores<AppCoreContext>();
 
 
 var app = builder.Build();
@@ -64,12 +95,15 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseSession();
 
 app.MapControllerRoute(
      name: "default",
-     pattern: "{controller=dashboard}/{action=index}/{id?}");
+     pattern: "{controller=Security}/{action=Users}/{id?}");
+
+DbCreatedAppCore.CreateDbIfNotExists(app);
 
 app.Run();

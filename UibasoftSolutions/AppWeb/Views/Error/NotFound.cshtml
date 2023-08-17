@@ -1,0 +1,35 @@
+﻿@model ErrorViewModel
+@{
+    //Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+    Layout = null;
+    ViewData["Title"] = "Error 404";
+}
+
+<div class="error-container">
+    <i class="pe-7s-way text-success big-icon"></i>
+    <h1>Oops!!</h1>
+    <h1>404 Página no encontrada!</h1>
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Request ID: </strong> <code>@Model.RequestId</code>
+        </p>
+    }
+    <p>
+        La página solicitada no se ha encontrado.
+        Es posible que haya cambiado de nombre, ya no exista, no esté disponible temporalmente
+        por motivos técnicos o que usted no haya introducido correctamente la dirección (URL)
+        en el navegador.
+
+    </p>
+    <a href="@Url.Action("Index", "Dashboard")" class="btn btn-xs btn-success">Volver Dashboard</a>
+</div>
+
+@if (Model.DoRedirect)
+{
+    <script>
+        window.setTimeout(function () {
+            window.location.href = '@Url.Action("index", "dashboard")';
+        }, 10000);
+    </script>
+}
