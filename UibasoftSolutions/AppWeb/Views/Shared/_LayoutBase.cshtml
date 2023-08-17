@@ -1,0 +1,95 @@
+﻿@*@model Farmacorp.Domain.CustomEntities.AppSettingsConfigOptions
+@{
+    ViewData["BuildNumber"] = Model.BuildNumber;
+}*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Alberto Baigorria">
+    <title>@ViewData["Title"] - AppWeb</title>
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap-reboot.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables/css/dataTables.bootstrap4.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/datatables/css/buttons.dataTables.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="page-content-menu">
+            <nav class="navbar navbar-expand-md navbar-light bg-white border-3 border-bottom fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Farmacorp Loyalty</a>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu-navega">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div id="menu-navega" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ms-3">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-area="" asp-controller="home" asp-action="index">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="home" asp-action="index">Sucursales</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="home" asp-action="index">Procesos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="home" asp-action="index">Reportes</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    Seguridad
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Index">Usuarios</a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="roles" asp-action="index">Roles</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" asp-area="" asp-controller="permission" asp-action="index">Privilegios</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <main role="main" class="main-body pt-5">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <footer class="footer text-muted">
+        <div class="footer">
+            <p class="text-center">
+                Para obtener más información contácta con: <br>
+                <a style="font-size: 12px; color: #337ab7; text-decoration:none;" href="https://www.lbaigorria.com" target="_blank">Alberto Baigorria</a> <br />
+                <span> Server: Core Fenix  |<span style="font-weight: bold">  Version: 1.0.0 </span> | &copy; @DateTime.Now.Year - Farmacorp Fenix </span>
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/lib/moment.js/moment.min.js" asp-append-version="true"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.min.js" asp-append-version="true"></script>
+    <script src="~/lib/datatables/js/dataTables.buttons.min.js" asp-append-version="true"></script>
+
+    <script src="~/lib/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/lib/datatables.net-buttons/js/buttons.html5.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

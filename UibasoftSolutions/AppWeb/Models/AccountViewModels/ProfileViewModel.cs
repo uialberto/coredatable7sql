@@ -1,4 +1,5 @@
 ﻿using AppWeb.Models.SecurityViewModels;
+using AppWeb.ViewModel;
 using System.Security.Claims;
 
 namespace AppWeb.Models.AccountViewModels
@@ -18,6 +19,7 @@ namespace AppWeb.Models.AccountViewModels
         public IEnumerable<Claim> Claims { get; set; }
         public ChangePasswordViewModel ChangePassword { get; set; }
         public CreateUserViewModel CreateUser { get; set; }
+        public UsuarioViewModel Usuario { get; set; }
 
         public string StatusMessage { get; set; }
     }

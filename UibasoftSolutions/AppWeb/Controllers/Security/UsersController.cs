@@ -44,8 +44,9 @@ namespace AppWeb.Controllers.Security
                 {
                     Id = idUser
                 },
+                Usuario = new UsuarioViewModel() { }
             };
-            return View("Views/Security/Users.cshtml", model);
+            return View("Views/Security/Users.cshtml", model.Usuario);
         }
         [HttpPost("search")]
         public async Task<IActionResult> BuscarUsuarios([FromBody] JqueryDataTablesParameters param)
